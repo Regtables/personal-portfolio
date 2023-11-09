@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-body);
+  overflow-x: hidden;
+  color: var(--color-font);
+  /* color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+}
+
+.home-container{
+  position: relative;
+  overscroll-behavior-y: contain;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  max-height: 100vh;
+}
+
+.in-view{
+  height: 1px;
+  position: absolute;
+}
+
+.hover{
+  transition: 0.4s ease-in-out;
+  &:hover{
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.666);
+  }
+}
+
+:root{
+  --font-family: 'Poppins';
+
+  --color-body: #0d1117;
+  --color-font: #f9f9f9;
+  --color-font-blue: rgb(182, 199, 214);
+  --color-lilac: #604d71;
+  // --color-lilac: #6e5981;
+  --color-yellow: #FDDA0D;
+  --color-red: #a31544c2;
+  --color-blue: #2d5989;
+  --color-green: #2c745c;
+  --color-purple: #9c27b0;
+  --color-card: rgba(75, 77, 77, 0.841);
+  --color-card: rgba(44, 46, 52, 0.841);
+
+  --section-margin: 10%;
+  --border-radius: 10px;
+}

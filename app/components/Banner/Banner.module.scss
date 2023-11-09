@@ -1,0 +1,24 @@
+.container{
+  width: 70vw;
+  height: 100vh;
+    // background-color:#a31545;
+ 
+  position: absolute;
+  z-index: 0;
+  // top: -10%;
+  // left: 0%;
+  
+  transform: skew(-65deg);
+  -o-transform: skew(-65deg);
+  -moz-transform: skew(-65deg);
+  -webkit-transform: skew(-65deg);
+
+  transition: all 1.5s;
+}
+
+#left{
+  transform: skew(65deg) rotate(180deg);
+  -o-transform: skew(65deg) rotate(180deg);
+  -moz-transform: skew(65deg) rotate(180deg);
+  -webkit-transform: skew(65deg) rotate(180deg);
+}

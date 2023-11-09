@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import { poppins } from './lib/fonts'
+import './globals.scss'
 
-const inter = Inter({ subsets: ['latin'] })
+import { SectionProvider } from './context/SectionContext'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +15,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <SectionProvider>
+      <html lang="en">
+        <body className={poppins.className}>{children}</body>
+      </html>
+    </SectionProvider>
   )
 }

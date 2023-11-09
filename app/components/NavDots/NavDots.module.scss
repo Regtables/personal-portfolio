@@ -1,0 +1,28 @@
+.container{
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  right: 0;
+  // top: 40%;
+  height: 100vh;
+  z-index: 10;
+
+
+  .dot{
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background-color: var(--color-card);
+    margin: 0.3rem 0;
+    
+    transition: all 1s;
+    
+    &.active{
+      background-color: aliceblue;
+      transform: scale(1.1);
+    }
+  }
+}
