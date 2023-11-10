@@ -52,3 +52,8 @@ export type SkillCardContent = {
   title?: any,
   text?: any
 }
+
+export type QuadrantType = {
+  major: string,
+  minor: string
+}

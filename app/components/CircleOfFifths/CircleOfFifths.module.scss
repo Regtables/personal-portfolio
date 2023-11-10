@@ -1,0 +1,64 @@
+.container{
+
+}
+
+/* Circle.css */
+.circle {
+  position: relative;
+  width: 380px; /* Adjust as needed */
+  height: 380px; /* Adjust as needed */
+  // border: 2px solid var(--color-font);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  
+  // align-items: center;
+  // overflow: hidden;
+
+  .quadrant {
+    transition: all 1s;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    display: grid;
+    // inset: 0px;
+    // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    // width: 50%;
+    // clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    // height: 50%;
+    border: 2px solid var(--color-font);
+    
+    
+    
+    &:hover{
+      background-color: var(--color-lilac);
+    }
+    
+    // transform-origin: 100% 100%;
+  }
+  
+  .note {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--color-font);
+
+    transition: all 1s;
+
+    // width: 30px;
+    // height: 30px;
+    // border: 1px solid #333;
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // font-size: 10px;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+
+  }
+}
+
