@@ -8,7 +8,7 @@ const SkillCardMd = ({ card, i } : { card: { title: string, points: string[] }, 
 
   return (
     <motion.div 
-      className='h-full w-full rounded-lg bg-[var(--color-card)] backdrop-blur-sm p-4 flex flex-col gap-2' 
+      className='h-full w-full rounded-lg bg-[var(--color-card)] backdrop-blur-sm p-4 flex flex-col gap-2 hover' 
       whileInView={{ opacity: [0,1] }}
       transition={{ duration: 1, delay: 0.2*i}}
     >

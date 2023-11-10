@@ -21,6 +21,7 @@ html{
 }
 
 body {
+  transition: background-color 2s;
   background-color: var(--color-body);
   overflow-x: hidden;
   color: var(--color-font);
@@ -32,6 +33,11 @@ body {
     )
     rgb(var(--background-start-rgb)); */
 }
+
+input{
+  // font-family: 'Poppins';
+}
+
 
 .home-container{
   position: relative;
@@ -50,6 +56,7 @@ body {
   transition: 0.4s ease-in-out;
   &:hover{
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.666);
+  // box-shadow: 0 0 20px rgba(116, 115, 115, 0.666);
   }
 }
 
@@ -61,13 +68,13 @@ body {
   --color-font-blue: rgb(182, 199, 214);
   --color-lilac: #604d71;
   // --color-lilac: #6e5981;
-  --color-yellow: #FDDA0D;
-  --color-red: #a31544c2;
+  --color-yellow: #d5bf40;
+  --color-red: #a31544;
   --color-blue: #2d5989;
   --color-green: #2c745c;
   --color-purple: #9c27b0;
   --color-card: rgba(75, 77, 77, 0.841);
-  --color-card: rgba(44, 46, 52, 0.841);
+  --color-card: rgb(43, 45, 52);
 
   --section-margin: 10%;
   --border-radius: 10px;

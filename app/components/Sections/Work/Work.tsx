@@ -1,21 +1,19 @@
-import React from 'react'
+import React from "react";
 
-import { getWorkContent } from '../../../lib/actions/content'
-import { Webiste } from '@/app/lib/types'
-import WebsiteCard from '../../Cards/WebsiteCard/WebsiteCard'
+import { getWorkContent } from "../../../lib/actions/content";
+import { Webiste } from "@/app/lib/types";
+import WebsiteCard from "../../Cards/WebsiteCard/WebsiteCard";
 
 const Work = async () => {
-  const work = await getWorkContent()
+  const work = await getWorkContent();
 
   return (
-    <div className='grid grid-cols-3 gap-2 h-full'>
+    <div className="grid grid-cols-3 gap-1 h-full">
       {work.map((website: Webiste, i: number) => (
-        <div>
-          <WebsiteCard website = {website} i = {i} key = {i} />
-        </div>
+        <WebsiteCard website={website} i={i} key={i} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Work
+export default Work;

@@ -139,13 +139,13 @@ const Skills = () => {
   return (
     <div className='flex h-[95%] gap-2'>
       <div className='flex-[0.5] grid grid-rows-3 gap-2 h-full'>
-        <div className='grid grid-cols-8 gap-1'>
+        <div className='grid grid-cols-8 gap-1 hover rounded-xl'>
           {SML_CARDS.map((card, i) => (
             <SkillCardSml card={card} i = {i} key = {i} />
           ))}
         </div>
-
-        <div className='grid grid-cols-2 gap-2 h-full'>
+        
+        <div className='grid grid-cols-2 gap-2 h-full hover'>
           {MD_CARDS_1.map((card, i) => (
             <SkillCardMd card = {card} i = {i+1} key = {i} />
           ))}
@@ -158,7 +158,7 @@ const Skills = () => {
         </div>
       </div>
 
-      <div className='flex-[0.5] grid grid-rows-3 gap-2 h-full'>
+      <div className='flex-[0.5] grid grid-rows-3 gap-2 h-full hover rounded-xl'>
         {LG_CARDS.map((card, i) => (
           <SkillCardLg card={card} i = {i} key = {i} />
         ))}

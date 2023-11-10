@@ -65,6 +65,8 @@ const Navbar = () => {
           className={styles.contact}
           whileInView={{ x: [-500, 0], opacity: [0,1] }}
           transition={{ duration: 0.5, easings: ["anticipate", "easeOut"] }}
+          onMouseEnter={() => handleHover("contact")}
+          onMouseLeave={() => handleHover("")}
         >
           <button>connect</button>
         </motion.div>

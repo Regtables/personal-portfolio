@@ -1,8 +1,15 @@
+'use client'
+
 import React from 'react'
+
+import { useSection  } from '@/app/context/SectionContext'
+
 import ButtonPrimary from '../../Buttons/ButtonPrimary'
 import CircleOfFifths from '../../CircleOfFifths/CircleOfFifths'
 
 const Hero = () => {
+  const { handleNavHover } = useSection();
+
   return (
     <div className='pt-48 flex items-center justify-between w-full'>
       <div className='flex-[0.65]'>
@@ -14,7 +21,7 @@ const Hero = () => {
 
         <p className='pt-2 font-[500]'>-Reg</p>
 
-        <div className='pt-10'>
+        <div className='pt-10' onMouseEnter={() => handleNavHover('contact')} onMouseLeave ={() => handleNavHover('home')}>
           <ButtonPrimary text='lets talk' color='var(--color-purple)'/>
         </div>
       </div>

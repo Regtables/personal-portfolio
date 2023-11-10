@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <SectionProvider>
       <html lang="en">
-        <body className={poppins.className}>{children}</body>
+        <body className={poppins.className} id = 'body'>{children}</body>
       </html>
     </SectionProvider>
   )

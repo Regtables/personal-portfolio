@@ -10,21 +10,20 @@ import About from "./components/Sections/About/About";
 import Skills from "./components/Sections/Skills/Skills";
 import Hero from "./components/Sections/Hero/Hero";
 import { useSection } from "./context/SectionContext";
+import Contact from "./components/Sections/Contact/Contact";
 
 export default function Home() {
   return (
-    <main className="home-container" id = 'home'>
+    <main className="home-container" id="home">
       <Navbar />
 
-      {/* {currentSection !== 'home' && ( */}
-        <NavDots sections={LINKS} />
-      {/* // )} */}
+      <NavDots sections={LINKS} />
 
       <SectionLayout heading="home" hero>
         <Hero />
       </SectionLayout>
 
-      <SectionLayout heading="about" left >
+      <SectionLayout heading="about" left>
         <About />
       </SectionLayout>
 
@@ -36,8 +35,8 @@ export default function Home() {
         <Skills />
       </SectionLayout>
 
-      <SectionLayout hero heading = 'contact'>
-
+      <SectionLayout hero heading="contact">
+        <Contact />
       </SectionLayout>
     </main>
   );
