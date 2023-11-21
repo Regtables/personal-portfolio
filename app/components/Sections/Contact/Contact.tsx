@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div className= {styles.container}>
       <header className= 'heading'>
-        <h2 className='text-[38px] font-[800]'>Lets talk work</h2>
+        <h2 className='text-[38px] font-[800] text-[var(--color-font)]'>Lets talk work</h2>
       </header>
 
       <div className= {styles.form}>

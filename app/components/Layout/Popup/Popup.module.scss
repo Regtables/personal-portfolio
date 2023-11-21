@@ -1,0 +1,32 @@
+.container{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  min-height: 100vh;
+  width: 100vw;
+  z-index: 998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+
+  &::before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.444);
+  }
+
+  .content{
+    position: relative;
+    z-index: 999;
+  }
+}
+
+#alert{
+  z-index: 1000;
+}
