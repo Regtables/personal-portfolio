@@ -3,8 +3,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-const SkillCardMd = ({ card, i } : { card: { title: string, points: string[] }, i: number }) => {
-  const { title, points } = card
+const SkillCardMd = ({ card, i } : { card: { title: string, points: string[], icon: any }, i: number }) => {
+  const { title, points, icon } = card
 
   return (
     <motion.div 
@@ -12,7 +12,10 @@ const SkillCardMd = ({ card, i } : { card: { title: string, points: string[] }, 
       whileInView={{ opacity: [0,1] }}
       transition={{ duration: 1, delay: 0.2*i}}
     >
-      <h4 className='font-[600]'>{title}</h4>
+      <div className='flex items-center gap-1'>
+        {icon}
+        <h4 className='font-[600]'>{title}</h4>
+      </div>
 
       <div>
         {points.map((point, i) => (
