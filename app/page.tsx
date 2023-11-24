@@ -1,5 +1,3 @@
-import { usePathname } from "next/navigation";
-
 import { LINKS } from "./lib/constants";
 
 import SectionLayout from "./components/Layout/SectionLayout";
@@ -9,7 +7,6 @@ import Work from "./components/Sections/Work/Work";
 import About from "./components/Sections/About/About";
 import Skills from "./components/Sections/Skills/Skills";
 import Hero from "./components/Sections/Hero/Hero";
-import { useSection } from "./context/SectionContext";
 import Contact from "./components/Sections/Contact/Contact";
 
 export default function Home() {

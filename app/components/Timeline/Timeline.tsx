@@ -34,20 +34,14 @@ export const TimelineCircle = ({
 
 const Timeline = ({ timeline }: { timeline: TimelineSection[] }) => {
   const [hover, setHover] = useState(-1);
-  const [animateDescription, setAnimateDescription] = useState({})
 
-  const handleHoverStart = (i: number) => {
-    setHover(i)
-    
-    setAnimateDescription({ opacity: [0, 1]})
-  }
-
-  const handleHoverEnd = () => {
-    setAnimateDescription({ opacity: [1, 0]})
-
-    setTimeout(() => {
-      setHover(-1)
-    }, 500);
+  const childVariants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    }
   }
 
   return (
@@ -55,19 +49,23 @@ const Timeline = ({ timeline }: { timeline: TimelineSection[] }) => {
       {timeline.map((section, i) => (
         <motion.div
           className={`${styles.section}`}
-          onMouseEnter={() => handleHoverStart(i)}
-          onMouseLeave={() => handleHoverEnd()}
-          whileInView={{opacity: [0,1], x: [-10,0] }}
-          transition={{ duration: 0.5, delay: 0.1*i}}
+          onHoverStart={() => setHover(i)}
+          onHoverEnd={() => setHover(-1)}
+          whileInView={{ opacity: [0, 1], x: [-10, 0] }}
+          transition={{ duration: 0.5, delay: 0.1 * i }}
         >
           <TimelineCircle section={section} hover={hover} i={i} />
           <TimelineBar i={i} hover={hover} />
 
-          {hover === i && (
-            <motion.div className={styles.description} animate = {animateDescription} initial = {{opacity: 0}} transition={{ duration: 0.5 }}>
-              <p>{section.description}</p>
-            </motion.div>
-          )}
+      
+          <motion.div
+            variants={childVariants}
+            className={styles.description}
+            animate={hover === i ? 'visible' : 'hidden'}
+            transition={{ duration: 0.5 }}
+          >
+            <p>{section.description}</p>
+          </motion.div>
         </motion.div>
       ))}
     </div>

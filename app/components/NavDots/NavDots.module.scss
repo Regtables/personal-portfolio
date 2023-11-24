@@ -1,4 +1,4 @@
-.container{
+.container {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -9,18 +9,33 @@
   // top: 40%;
   height: 100vh;
   z-index: 10;
+  gap: 8px;
 
+  transition: all 0.5s;
 
-  .dot{
-    height: 14px;
-    width: 14px;
+  .dot_container {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    p {
+      font-size: 10px;
+      position: absolute;
+      left: -50px;
+      font-weight: 300;
+    }
+  }
+
+  .dot {
+    height: 12px;
+    width: 12px;
     border-radius: 50%;
     background-color: var(--color-card);
-    margin: 0.3rem 0;
-    
-    transition: all 1s;
-    
-    &.active{
+    // margin: 0.3rem 0;
+
+    transition: background-color 1s transform 1s;
+
+    &.active {
       background-color: aliceblue;
       transform: scale(1.1);
     }
