@@ -23,7 +23,9 @@ const SectionLayout = ({ heading, children, hero, left }: Section) => {
       className="h-screen snap-center relative overflow-hidden px-[6.5rem]"
       id={heading}
     >
-      <Banner left={left!} />
+      <div>
+        <Banner left={left!} />
+      </div>
 
       <div ref={ref} className="absolute top-[50%] h-[1px]" />
 

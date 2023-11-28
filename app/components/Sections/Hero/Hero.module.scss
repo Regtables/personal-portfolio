@@ -1,0 +1,16 @@
+// .exit{
+//   transform: translateX(-100px);
+//   opacity: 0;
+// }
+
+.heading{
+  font-size: 36px;
+  font-weight: 600;
+
+  transition: all 0.5s;
+
+  &.exit{
+    transform: translateX(-10px) !important;
+    opacity: 0 !important;
+  }
+}
