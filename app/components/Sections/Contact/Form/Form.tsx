@@ -12,7 +12,7 @@ const iconProps = {
 
 const EMAIL = {
   icon: <Mail { ...iconProps } />,
-  info: 'reghardt7@gmail.com'
+  info: 'reg@regtables.com'
 }
 
 const INSTAGRAM = {

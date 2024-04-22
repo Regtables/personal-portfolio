@@ -32,7 +32,7 @@ const Quadrant = ({ quadrandt, i }: { quadrandt: QuadrantType; i: number }) => {
   return (
     <motion.div
       className={styles.quadrant}
-      style={{ transform: `rotate(${i%2 === 0 ? rotation: rotation}deg)` }}
+      style={{ transform: `rotate(${i%2 === 0 ? rotation : rotation}deg)` }}
       onMouseEnter={() => handleHoverStart()}
       onClick={handleClick}
       whileInView={{ opacity: [0, 1] }}

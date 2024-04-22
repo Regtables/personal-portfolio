@@ -1,28 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Instagram, GitHub } from "react-feather";
+import { Instagram, GitHub, CornerDownLeft } from "react-feather";
 
 import { useSection } from "@/app/context/SectionContext";
-import styles from './Hero.module.scss'
+import styles from "./Hero.module.scss";
 
 import ButtonPrimary from "../../Buttons/ButtonPrimary";
 import CircleOfFifths from "../../CircleOfFifths/CircleOfFifths";
+import Form from "../Contact/Form/Form";
 
 const Hero = () => {
-  const { handleNavHover } = useSection();
-  const [toggleForm, setToggleForm] = useState(false)
-  const [animateText, setAnimateText] = useState({})
+  const { handleNavHover, handleBannerColorChange } = useSection();
+  const [toggleForm, setToggleForm] = useState(false);
+  const [animateText, setAnimateText] = useState({});
+
+  useEffect(() => {
+    onLoadAnimate();
+  }, []);
 
   const variants = {
     inView: {
       x: [-50, 0],
-      opacity: [0,1],
+      opacity: [0, 1],
     },
     outOfView: {
       x: -50,
-      opacity: [1, 0]
+      opacity: [1, 0],
     },
   };
 
@@ -51,97 +56,148 @@ const Hero = () => {
   };
 
   const handleContactClick = () => {
-    console.log('getting in contact')
-    setToggleForm(true)
+    console.log("getting in contact");
 
-    const heading = document.getElementById('heading')
+    document.getElementById("heading")?.classList.add(styles.exit);
 
-    heading?.classList.add(styles.exit)
-    console.log(heading)
+    document.getElementById("circle")?.classList.add(styles.exit_circle);
 
+    setTimeout(() => {
+      document.getElementById("text")?.classList.add(styles.exit);
+    }, 100);
+
+    setTimeout(() => {
+      document.getElementById("sub")?.classList.add(styles.exit);
+    }, 200);
+
+    setTimeout(() => {
+      document.getElementById("reg")?.classList.add(styles.exit);
+    }, 300);
+
+    setTimeout(() => {
+      document.getElementById("button")?.classList.add(styles.exit);
+    }, 400);
+
+    setTimeout(() => {
+      document.getElementById("socials")?.classList.add(styles.exit);
+    }, 500);
+
+    document.getElementById("banner")?.classList.add(styles.exit_banner);
+
+    setTimeout(() => {
+      setToggleForm(true);
+    }, 800);
+
+    setTimeout(() => {
+      document.getElementById("form")?.classList.add(styles.enter_form);
+    }, 900);
+
+    handleBannerColorChange("contact");
 
     // setAnimateText({ x: -100, opacity: 0 })
+  };
+
+  const handleBackClick = () => {
+    //exit form
+    document.getElementById('form')?.classList.replace(styles.enter_form, styles.exit_form)
+
+    setTimeout(() => {
+      setToggleForm(false)
+    }, 700);
+  
+    setTimeout(() => {
+      document.getElementById('banner')?.classList.replace(styles.exit_banner, styles.enter_banner)
+
+      document.getElementById('circle')?.classList.replace(styles.exit_circle, styles.enter_circle)
+
+      document.getElementById('heading')?.classList.replace(styles.exit, styles.enter)
+      onLoadAnimate()
+    }, 800);
+    //toggleForm
+
+    //enter content
   }
 
+  const onLoadAnimate = () => {
+    document.getElementById("heading")?.classList.add(styles.enter);
+
+    // document.getElementById('banner')?.classList.add(styles.enter_banner)
+
+    setTimeout(() => {
+      document.getElementById("text")?.classList.add(styles.enter);
+    }, 100);
+
+    setTimeout(() => {
+      document.getElementById("sub")?.classList.add(styles.enter);
+    }, 200);
+
+    setTimeout(() => {
+      document.getElementById("reg")?.classList.add(styles.enter);
+    }, 300);
+
+    setTimeout(() => {
+      document.getElementById("button")?.classList.add(styles.enter);
+    }, 400);
+
+    setTimeout(() => {
+      document.getElementById("socials")?.classList.add(styles.enter);
+    }, 500);
+
+  };
+
   return (
-    <div className="pt-48 flex items-center justify-between w-full h-full">
-      <div className="flex-[0.65]">
-        <motion.h1
-          variants={variants}
-          // // initial = 'inView'
-          // animate = {animateText}
-          whileInView={'inView'}
-          // className="text-[36px] font-[600]"
-          className= {styles.heading}
-          transition={{ duration: 0.5, delay: 0 }}
-          id = 'heading'
-          initial = {{opacity: 0, x: -50 }}
-        >
-          Hi, welcome to my developer portofolio.
-        </motion.h1>
+    <>
+      {!toggleForm ? (
+        <div className= {styles.container}>
+          <div className={styles.left}>
+            <h1 id="heading">Hi, welcome to my developer portofolio.</h1>
 
-        <motion.h3
-          className="pt-6 font-[500] w-[80%]"
-          animate = {toggleForm && 'outOfView'}
-          variants={variants}
-          whileInView={"inView"}
-          transition={{ duration: 0.3, delay: 0.15 }}
-        >
-          It has been a great pleasure to learn how to code and build modular
-          web applications. This page is intented to showcase that journey, and
-          to demonstrate the passion I have for my craft.
-        </motion.h3>
+            <h3 id="text">
+              It has been a great pleasure to learn how to code and build
+              modular web applications. This page is intented to showcase that
+              journey, and to demonstrate the passion I have for my craft.
+            </h3>
 
-        <motion.h4
-          className="pt-6 font-[700]"
-          animate = {toggleForm ? 'outOfView' : 'inView'}
-          variants={variants}
-          whileInView={"inView"}
-          transition={{ duration: 0.3, delay: 0.25 }}
-        >
-          Please enjoy, and click everything.
-        </motion.h4>
+            <h4 id="sub">
+              Please enjoy, <span>and click everything.</span>
+            </h4>
 
-        <motion.p
-          className="pt-2 font-[500]"
-          animate = {toggleForm ? 'outOfView' : 'inView'}
-          variants={variants}
-          whileInView={"inView"}
-          transition={{ duration: 0.3, delay: 0.35 }}
-        >
-          -Reg
-        </motion.p>
+            <p id="reg">-Reg</p>
 
-        <motion.div
-          className="pt-10"
-          animate = {toggleForm ? 'outOfView' : 'inView'}
-          onMouseEnter={() => handleNavHover("contact")}
-          onMouseLeave={() => handleNavHover("home")}
-          variants={variants}
-          whileInView={"inView"}
-          transition={{ duration: 0.3, delay: 0.45 }}
-          onClick={handleContactClick}
-        >
-          <ButtonPrimary text="lets talk" color="var(--color-purple)" />
-        </motion.div>
+            <div
+              onMouseEnter={() => handleNavHover("contact")}
+              onMouseLeave={() => handleNavHover("home")}
+              onClick={handleContactClick}
+              className={styles.button}
+              id="button"
+            >
+              <ButtonPrimary text="lets talk" color="var(--color-purple)" />
+            </div>
 
-        <motion.div
-          className="pt-6 flex gap-3"
-          variants={variants}
-          animate = {toggleForm ? 'outOfView' : 'inView'}
-          whileInView={"inView"}
-          transition={{ duration: 0.3, delay: 0.55 }}
-        >
-          <Instagram {...iconProps} />
+            <div className={styles.socials} id="socials">
+              <Instagram {...iconProps} />
 
-          <GitHub {...iconProps} />
-        </motion.div>
-      </div>
+              <GitHub {...iconProps} />
+            </div>
+          </div>
 
-      <div className="flex-[0.35]">
-        <CircleOfFifths />
-      </div>
-    </div>
+          <div className={styles.right} id="circle">
+            <CircleOfFifths />
+          </div>
+        </div>
+      ) : (
+        <div className={styles.form} id="form">
+          <h1>What do you have in mind?</h1>
+
+          <Form />
+
+          <button onClick={handleBackClick}>
+            back home
+            <CornerDownLeft />
+          </button>
+        </div>
+      )}
+    </>
   );
 };
 

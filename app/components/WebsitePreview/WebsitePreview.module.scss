@@ -2,7 +2,7 @@
   width: 600px;
   // height: 500px;
   // background-color: rgba(74, 74, 74, 0.76);
-  background-color: #16181ace;
+  background-color: #16181a;
   backdrop-filter: blur(2px);
   border-radius: 20px;
   padding: 2rem;
@@ -120,6 +120,19 @@
 
     #github{
       background-color: var(--color-yellow);
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 90vw;
+    padding: 1rem;
+    
+    .buttons{
+      flex-direction: column;
+
+      button{
+        width: 100%;
+      }
     }
   }
 }

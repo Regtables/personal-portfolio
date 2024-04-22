@@ -9,9 +9,17 @@ import { Webiste } from "@/app/lib/types";
 import styles from "./WebsiteCard.module.scss";
 import { client } from "@/app/lib/sanity";
 
-import withModal from '@/app/hocs/withModal'
+import withModal from "@/app/hocs/withModal";
 
-const WebsiteCard = ({ website, i, togglePreview }: { website: Webiste; i: number, togglePreview: (toggle, website) => void }) => {
+const WebsiteCard = ({
+  website,
+  i,
+  togglePreview,
+}: {
+  website: Webiste;
+  i: number;
+  togglePreview: (toggle: boolean, website: Webiste) => void;
+}) => {
   const { name, links, image } = website;
   const { src, loader }: any = useNextSanityImage(client, image);
   const [animate, setAnimate] = useState({});

@@ -7,6 +7,7 @@ const SectionContext = createContext();
 export const SectionProvider = ({ children }) => {
   const [currentSection, setCurrentSection] = useState("hero");
   const [bannerColor, setBannerColor] = useState();
+  const [toggleForm, setToggleForm] = useState()
 
   const handleBannerColorChange = (section) => {
     const body = document.getElementById("body");
@@ -45,6 +46,7 @@ export const SectionProvider = ({ children }) => {
         handleSectionChange,
         bannerColor,
         handleNavHover,
+        handleBannerColorChange
       }}
     >
       {children}

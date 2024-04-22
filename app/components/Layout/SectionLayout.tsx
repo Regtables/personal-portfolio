@@ -20,22 +20,22 @@ const SectionLayout = ({ heading, children, hero, left }: Section) => {
 
   return (
     <section
-      className="h-screen snap-center relative overflow-hidden px-[6.5rem]"
+      className="h-screen snap-center relative overflow-hidden lg:px-[6.5rem] px-[1rem]"
       id={heading}
     >
-      <div>
+      <div id = 'banner'>
         <Banner left={left!} />
       </div>
 
       <div ref={ref} className="absolute top-[50%] h-[1px]" />
 
       {!hero && (
-        <header className="relative z-10 py-[2rem]">
+        <header className="relative z-10 py-[1rem] lg:py-[2rem]">
           <h2 className="text-[26px] font-[700]">{heading}</h2>
         </header>
       )}
 
-      <div className="relative z-10 h-[80%]">{children}</div>
+      <div className="relative z-10 h-[87%] lg:h-[80%]">{children}</div>
     </section>
   );
 };

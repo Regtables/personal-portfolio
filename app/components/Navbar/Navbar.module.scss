@@ -11,7 +11,7 @@
     flex: 0.2;
 
     h1{
-      font-weight: 600;
+      font-weight: 700;
       font-size: 20px;
     }
   }
@@ -66,6 +66,16 @@
       color: var(--color-font);
       border-radius: 20rem;
       cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+
+    .logo{
+      display: none;
+    }
+    .links{
+      display: none;
     }
   }
 }

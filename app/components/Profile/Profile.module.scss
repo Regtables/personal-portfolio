@@ -79,4 +79,62 @@
       }
     }
   }
+
+
+  @media screen and (max-width: 450px) {
+    gap: unset;
+    // width: 70%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: right;
+    gap: 10px;
+
+    .carousel{  
+      // display: none;
+      flex: 0.3;
+    }
+
+    .information{
+      gap: 10px;
+      .bio{
+        p{
+          font-size: 12px;
+          text-align: justify;
+        }
+      }
+
+      .metrics{
+        grid-template-columns: 1fr ;
+        gap: 10px;
+
+        .item{
+          justify-content: space-between;
+          text-align: right;
+          p{
+            font-size: 12px;
+          }
+
+          h3{
+            font-size: 12px;
+          }
+        }
+      }
+
+      .socials{
+        display: flex;
+        // flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+       
+        gap: unset;
+        width: 100%;
+        // text-align: end;
+
+        .social{
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
 }

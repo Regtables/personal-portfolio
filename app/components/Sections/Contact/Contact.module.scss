@@ -11,5 +11,12 @@
 
   .form {
     // margin-top: 2rem;
+    // width: 100%;
+  }
+
+  @media screen and (max-width: 450px) {
+    .form{
+      width: 100%;
+    }
   }
 }

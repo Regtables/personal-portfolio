@@ -25,6 +25,25 @@
       }
     }
   }
+
+  
+  @media screen and (max-width: 450px) {
+    grid-template-columns: 1fr;
+    height: 100vh;
+
+    .section{
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+
+      .description{
+        right: 0;
+        top: 0;
+        width: 300px;
+      }
+    }
+  }
 }
 
 .bar{
@@ -33,6 +52,11 @@
   width: 100%;
   // min-width: 232px;
   background-color: var(--color-lilac);
+
+  @media screen and (max-width: 450px) {
+    width: 5px;
+    height: 100%;
+  }
 }
 
 .activity{
@@ -75,6 +99,14 @@
     align-items: center;
     justify-content: center;
   }
+
+    
+  @media screen and (max-width: 450px) {
+    h3,h5{
+      font-size: 12px;
+    }
+  }
+
 }
 
 .hover{

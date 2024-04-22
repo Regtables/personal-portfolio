@@ -84,7 +84,7 @@ const Profile = ({ profile }: { profile: ProfileType }) => {
         </div>
 
         <div className={styles.socials}>
-          <SocialTile icon = {<Instagram />} url="" handle="@eat.your.regtables" />
+          {/* <SocialTile icon = {<Instagram />} url="" handle="@eat.your.regtables" /> */}
           <SocialTile icon = {<Instagram />} url="" handle="@gaze.band" />
           <SocialTile icon = {<GitHub />} url = '' handle = 'Regtables' />
           {/* <SocialTile icon = {<Linkedin />} url = '' handle="Reghardt Pienaar" /> */}

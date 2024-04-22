@@ -14,6 +14,12 @@
   -webkit-transform: skew(-65deg);
 
   transition: all 1.5s;
+
+  @media screen and (max-width: 450px) {
+    // height: 400px;
+    width: 80vh;
+    top: -60px;
+  }
 }
 
 #left{
@@ -21,4 +27,10 @@
   -o-transform: skew(65deg) rotate(180deg);
   -moz-transform: skew(65deg) rotate(180deg);
   -webkit-transform: skew(65deg) rotate(180deg);
+
+  @media screen and (max-width: 450px) {
+    // height: 400px;
+    width: 80vh;
+    top: 60px;
+  }
 }

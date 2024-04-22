@@ -24,17 +24,17 @@ const LG_CARDS = [
   {
     icon: <Zap {...lgIconProps} />,
     title: "Modern",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     icon: <Music {...lgIconProps} />,
     title: "Creative",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
   {
     icon: <Layers {...lgIconProps} />,
     title: "Full Stack",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   },
 ];
 
@@ -169,9 +169,9 @@ const MD_CARDS_2 = [
 
 const Skills = () => {
   return (
-    <div className="flex h-[95%] gap-2">
-      <div className="flex-[0.5] grid grid-rows-3 gap-2 h-full">
-        <div className="grid grid-cols-8 gap-1 hover rounded-xl">
+    <div className="flex h-full lg:h-[95%] gap-2">
+      <div className="flex-[0.5] grid grid-rows-1 lg:grid-rows-3 gap-2 h-full">
+        <div className="grid grid-cols-5 lg:grid-cols-8 gap-1 rounded-xl">
           {SML_CARDS.map((card, i) => (
             <SkillCardSml
               card={card}
@@ -183,20 +183,20 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-2 h-full hover">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 h-full">
           {MD_CARDS_1.map((card, i) => (
             <SkillCardMd card={card} i={i + 1} key={i} />
           ))}
         </div>
 
-        <div className="grid grid-cols-2 gap-2 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 h-full">
           {MD_CARDS_2.map((card, i) => (
             <SkillCardMd card={card} i={i} key={i} />
           ))}
         </div>
       </div>
 
-      <div className="flex-[0.5] grid grid-rows-3 gap-2 h-full hover rounded-xl">
+      <div className="flex-[0.5] grid grid-rows-3 gap-2 h-full rounded-xl">
         {LG_CARDS.map((card, i) => (
           <SkillCardLg card={card} i={i} key={i} />
         ))}
