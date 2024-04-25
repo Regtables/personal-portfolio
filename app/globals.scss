@@ -44,7 +44,17 @@ input{
   overscroll-behavior-y: contain;
   overflow: auto;
   scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  height: 100vh;
   max-height: 100vh;
+}
+
+.section{
+  height: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  scroll-snap-align:start ;
+  scroll-snap-stop: start;
 }
 
 .in-view{

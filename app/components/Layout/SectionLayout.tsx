@@ -4,9 +4,9 @@ import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 import { Section } from "../../lib/types";
+import { useSection } from "../../context/SectionContext";
 
 import Banner from "../Banner/Banner";
-import { useSection } from "../../context/SectionContext";
 
 const SectionLayout = ({ heading, children, hero, left }: Section) => {
   const { inView, ref } = useInView();
@@ -20,7 +20,7 @@ const SectionLayout = ({ heading, children, hero, left }: Section) => {
 
   return (
     <section
-      className="h-screen snap-center relative overflow-hidden lg:px-[6.5rem] px-[1rem]"
+      className="section h-screen snap-center relative overflow-hidden lg:px-[6.5rem] px-[1rem]"
       id={heading}
     >
       <div id = 'banner'>
@@ -30,7 +30,7 @@ const SectionLayout = ({ heading, children, hero, left }: Section) => {
       <div ref={ref} className="absolute top-[50%] h-[1px]" />
 
       {!hero && (
-        <header className="relative z-10 py-[1rem] lg:py-[2rem]">
+        <header className="relative z-10 py-[0.5rem] pb-[1rem] lg:py-[2rem]">
           <h2 className="text-[26px] font-[700]">{heading}</h2>
         </header>
       )}

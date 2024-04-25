@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import styles from './CircleOfFifths.module.scss'
 import Circle from './Circle'
@@ -61,9 +61,20 @@ const QUADRANDTS = [
 ]
 
 const CircleOfFifths = () => {
+  const [rotationSpeed, setRotationSpeed] = useState(1)
+
+  const handleActivate = () => {
+    console.log('activating')
+    setRotationSpeed(rotationSpeed * 6)
+
+    setTimeout(() => {
+      setRotationSpeed(1)
+    }, 4000);
+  }
+
   return (
-    <div className= {styles.container}>
-      <Circle quadrandts={QUADRANDTS} />
+    <div className= {styles.container} onClick={handleActivate}>
+      <Circle quadrandts={QUADRANDTS} rotationSpeed={rotationSpeed} />
     </div>
   )
 }
