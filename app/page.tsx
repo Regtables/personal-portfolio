@@ -8,8 +8,11 @@ import About from "./components/Sections/About/About";
 import Skills from "./components/Sections/Skills/Skills";
 import Hero from "./components/Sections/Hero/Hero";
 import Contact from "./components/Sections/Contact/Contact";
+import { getWorkContent } from "./lib/actions/content";
 
-export default function Home() {
+export default async function Home() {
+  const work = await getWorkContent();
+
   return (
     <main className="home-container" id="home">
       <Navbar />
@@ -25,7 +28,7 @@ export default function Home() {
       </SectionLayout>
 
       <SectionLayout heading="work">
-        <Work />
+        <Work work={work} />
       </SectionLayout>
 
       <SectionLayout heading="skills" left>
