@@ -41,28 +41,31 @@ const Timeline = ({ timeline }: { timeline: TimelineSection[] }) => {
     },
     visible: {
       opacity: 1,
-    }
-  }
+    },
+  };
 
   return (
     <div className={styles.container}>
       {timeline.map((section, i) => (
         <motion.div
           className={`${styles.section}`}
-          onHoverStart={() => setHover(i)}
-          onHoverEnd={() => setHover(-1)}
           whileInView={{ opacity: [0, 1], x: [-10, 0] }}
           transition={{ duration: 0.5, delay: 0.1 * i }}
-          key = {i}
+          onHoverStart={() => setHover(i)}
+          onHoverEnd={() => setHover(-1)}
+          key={i}
         >
-          <TimelineCircle section={section} hover={hover} i={i} />
-          <TimelineBar i={i} hover={hover} />
+          <motion.div
+            className="flex flex-col lg:flex-row lg:items-center w-full h-full items-center"
+          >
+            <TimelineCircle section={section} hover={hover} i={i} />
+            <TimelineBar i={i} hover={hover} />
+          </motion.div>
 
-      
           <motion.div
             variants={childVariants}
             className={styles.description}
-            animate={hover === i ? 'visible' : 'hidden'}
+            animate={hover === i ? "visible" : "hidden"}
             transition={{ duration: 0.5 }}
           >
             <p>{section.description}</p>

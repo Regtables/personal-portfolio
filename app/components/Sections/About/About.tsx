@@ -10,7 +10,7 @@ const About = async () => {
   const { profile, timeline } = aboutContent
 
   return (
-    <div className="w-full flex lg:flex-col gap-14 lg:gap-16 lg:mt-5 mt-0">
+    <div className="w-full h-[90%] flex lg:flex-col gap-16 lg:gap-16 lg:mt-5 mt-0">
       <div>
         <Timeline timeline={timeline} />
       </div>

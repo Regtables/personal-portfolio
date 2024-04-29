@@ -8,7 +8,7 @@ import { useSection } from "@/app/context/SectionContext";
 import Logo from "../Logo";
 
 const Navbar = () => {
-  const { handleNavHover } = useSection();
+  const { handleNavHover, handleContactClick } = useSection();
 
   const handleHover = (link: string) => {
     handleNavHover(link);
@@ -67,6 +67,7 @@ const Navbar = () => {
           className={styles.contact}
           whileInView={{ x: [-500, 0], opacity: [0,1] }}
           transition={{ duration: 0.5, easings: ["anticipate", "easeOut"] }}
+          onClick={handleContactClick}
           onMouseEnter={() => handleHover("contact")}
           onMouseLeave={() => handleHover("")}
         >

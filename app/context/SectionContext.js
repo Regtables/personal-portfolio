@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState, useContext, createContext } from "react";
+import styles from '../components/Sections/Hero/Hero.module.scss'
 
 const SectionContext = createContext();
 
 export const SectionProvider = ({ children }) => {
   const [currentSection, setCurrentSection] = useState("hero");
   const [bannerColor, setBannerColor] = useState();
-  const [toggleForm, setToggleForm] = useState()
+  const [toggleForm, setToggleForm] = useState(false)
 
   const handleBannerColorChange = (section) => {
     const body = document.getElementById("body");
@@ -30,6 +31,48 @@ export const SectionProvider = ({ children }) => {
     }
   };
 
+  const handleContactClick = () => {
+    console.log("getting in contact");
+
+    document.getElementById("heading")?.classList.add(styles.exit);
+
+    document.getElementById("circle")?.classList.add(styles.exit_circle);
+
+    setTimeout(() => {
+      document.getElementById("text")?.classList.add(styles.exit);
+    }, 100);
+
+    setTimeout(() => {
+      document.getElementById("sub")?.classList.add(styles.exit);
+    }, 200);
+
+    setTimeout(() => {
+      document.getElementById("reg")?.classList.add(styles.exit);
+    }, 300);
+
+    setTimeout(() => {
+      document.getElementById("button")?.classList.add(styles.exit);
+    }, 400);
+
+    setTimeout(() => {
+      document.getElementById("socials")?.classList.add(styles.exit);
+    }, 500);
+
+    document.getElementById("banner")?.classList.add(styles.exit_banner);
+
+    setTimeout(() => {
+      setToggleForm(true);
+    }, 800);
+
+    setTimeout(() => {
+      document.getElementById("form")?.classList.add(styles.enter_form);
+    }, 900);
+
+    handleBannerColorChange("contact");
+
+    // setAnimateText({ x: -100, opacity: 0 })
+  };
+
   const handleSectionChange = (section) => {
     setCurrentSection(section);
     handleBannerColorChange(section);
@@ -46,7 +89,10 @@ export const SectionProvider = ({ children }) => {
         handleSectionChange,
         bannerColor,
         handleNavHover,
-        handleBannerColorChange
+        handleBannerColorChange,
+        handleContactClick,
+        toggleForm,
+        setToggleForm
       }}
     >
       {children}

@@ -15,12 +15,14 @@ const iconProps = {
 
 const EMAIL = {
   icon: <Mail {...iconProps} />,
-  info: "reg@regtables.com",
+  info: "reghardt7@gmail.com",
+  url: 'mailto:reghardt7@gmail.com'
 };
 
 const INSTAGRAM = {
   icon: <Instagram {...iconProps} />,
   info: "@eat.your.regtables",
+  url: '"https://www.instagram.com/eat.your.regtables/"'
 };
 
 const PHONE = {
@@ -31,6 +33,7 @@ const PHONE = {
 const Linked = {
   icon: <Linkedin {...iconProps} />,
   info: "Reghardt Pienaar",
+  url: "https://www.linkedin.com/in/reghardt-pienaar-617329a7/"
 };
 
 const Form = () => {
@@ -98,7 +101,7 @@ const Form = () => {
 
       {isSubmitted ? (
         <motion.div
-          className="text-center lg:w-[70%] w-full flex justify-center mx-auto mt-8"
+          className="text-center lg:w-[70%] w-full flex justify-center lg:mx-auto mt-8"
           whileInView={{ y: [20, 0], opacity: [0, 1] }}
           transition={{ duration: 2 }}
         >

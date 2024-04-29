@@ -10,10 +10,11 @@ import styles from "./Hero.module.scss";
 import ButtonPrimary from "../../Buttons/ButtonPrimary";
 import CircleOfFifths from "../../CircleOfFifths/CircleOfFifths";
 import Form from "../Contact/Form/Form";
+import { Linkedin } from "lucide-react";
 
 const Hero = () => {
-  const { handleNavHover, handleBannerColorChange } = useSection();
-  const [toggleForm, setToggleForm] = useState(false);
+  const { handleNavHover, handleBannerColorChange, toggleForm, setToggleForm } = useSection();
+  // const [toggleForm, setToggleForm] = useState(false);
   const [animateText, setAnimateText] = useState({});
 
   useEffect(() => {
@@ -175,9 +176,17 @@ const Hero = () => {
             </div>
 
             <div className={styles.socials} id="socials">
-              <Instagram {...iconProps} />
+              <a href="https://www.instagram.com/eat.your.regtables/" target = '_blank' rel = 'noreferer'>
+                <Instagram {...iconProps} />
+              </a>
 
-              <GitHub {...iconProps} />
+              <a href="https://github.com/Regtables" target = '_blank' rel = 'noreferer'>
+               <GitHub {...iconProps} />
+              </a>
+
+              <a href="https://www.linkedin.com/in/reghardt-pienaar-617329a7/" target = '_blank' rel = 'noreferer'>
+                <Linkedin {...iconProps} />
+              </a>
             </div>
           </div>
 

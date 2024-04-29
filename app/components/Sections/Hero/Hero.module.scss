@@ -9,13 +9,14 @@
 }
 
 .container {
-  padding-top: 200px;
+  padding-top: 30vh;
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
 
   .left {
-    flex: 0.65;
+    flex: 0.60;
 
     h1 {
       font-size: 36px;
@@ -70,7 +71,9 @@
   }
 
   .right {
-    flex: 0.35;
+    flex: 0.40;
+    display: flex;
+    justify-content: center;
   }
 
   @media screen and (max-width: 450px) {

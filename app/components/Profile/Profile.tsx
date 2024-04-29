@@ -9,6 +9,7 @@ import { ProfileType } from "@/app/lib/types";
 
 import ButtonPrimary from "../Buttons/ButtonPrimary";
 import Carousel from "../Carousel/Carousel";
+import axios from "axios";
 
 const SocialTile = ({ url, handle, icon }: { url: string; handle: string, icon: any }) => {
   return (
@@ -27,6 +28,18 @@ const Profile = ({ profile }: { profile: ProfileType }) => {
     bio,
     images,
   } = profile;
+
+  const handleDownload = async () => {
+    const response = await axios.get('/api/downloads/cv', { responseType: 'blob'})
+    const url = window.URL.createObjectURL(new Blob([response.data]))
+
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'Reghardt Pienaar CV.pdf'
+    document.body.appendChild(link)
+    link.click()
+    link.parentNode?.removeChild(link)  
+  }
 
   return (
     <div className={styles.container}>
@@ -85,12 +98,16 @@ const Profile = ({ profile }: { profile: ProfileType }) => {
 
         <div className={styles.socials}>
           {/* <SocialTile icon = {<Instagram />} url="" handle="@eat.your.regtables" /> */}
-          <SocialTile icon = {<Instagram />} url="" handle="@gaze.band" />
-          <SocialTile icon = {<GitHub />} url = '' handle = 'Regtables' />
-          {/* <SocialTile icon = {<Linkedin />} url = '' handle="Reghardt Pienaar" /> */}
+          
+          <SocialTile icon = {<Instagram />} url="https://www.instagram.com/gaze.band/" handle="@gaze.band" />
+          <SocialTile icon = {<GitHub />} url = '"https://github.com/Regtables"' handle = 'Regtables' />
+          
+          <div className="lg:block hidden">
+            <SocialTile icon = {<Linkedin />} url = '"https://www.linkedin.com/in/reghardt-pienaar-617329a7/"' handle="Reghardt Pienaar" />
+          </div>
         </div>
 
-        <div className={styles.button}>
+        <div className={styles.button} onClick={handleDownload}>
           <ButtonPrimary text="download cv" color="var(--color-lilac)" />
         </div>
       </motion.div>

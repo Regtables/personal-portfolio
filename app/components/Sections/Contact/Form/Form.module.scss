@@ -59,6 +59,8 @@
   }
 
   @media screen and (max-width: 450px) {
+    width: 100%;
+    max-width: 100%;
     .contact{
       grid-template-columns: 1fr;
       gap: 10px;
