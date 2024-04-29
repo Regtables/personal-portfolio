@@ -1,98 +1,86 @@
-import React from "react";
+import React, { FC } from "react";
 import Image from "next/image";
 
 import { useNextSanityImage } from "next-sanity-image";
 
 import styles from "./WebsitePreview.module.scss";
 import { client } from "@/app/lib/sanity";
-import { Webiste } from "@/app/lib/types";
 
 import Popup from "../Layout/Popup/Popup";
+import { useModal } from "@/app/context/ModalContext";
+import { GitHub } from "react-feather";
+import { Eye } from "lucide-react";
 
-const WebsitePreview = ({
-  togglePreview,
-  setTogglePreview,
-  website,
-}: {
-  togglePreview: boolean;
-  setTogglePreview: any;
-  website: Webiste;
-}) => {
-  const {
-    name,
-    links: { url, github },
-    type,
-    image,
-    logo,
-    stack,
-    description,
-  } = website;
-  const imageProps: any = useNextSanityImage(client, image);
-  const logoProps: any = useNextSanityImage(client, logo);
 
-  const handleClose = () => {
-    setTogglePreview({ togglePreview: false, website: website });
+const WebsitePreview= () => {
+  const { types, isOpen, data, handleModalClose } = useModal()
+  const {activeWebsite: website } = data
 
-    setTimeout(() => {
-      setTogglePreview({ website: {} });
-    }, 500);
-  };
+  if (!website) return null
+
+  const imageProps: any = useNextSanityImage(client, website.image);
+  const logoProps: any = useNextSanityImage(client, website.logo);
+  
+  const isModalOpen = isOpen && types?.includes('workPreview')
+
+  const renderStackImage = (tech: string) => {
+    if(tech === 'sanity'){
+      return '/sanity.svg'
+    }if(tech === 'mui'){
+      return '/mui.svg'
+    } else {
+      return `/${tech}.png`
+    }
+  }
 
   return (
-    <Popup toggle = {togglePreview} handleToggle={setTogglePreview}>
+    <Popup toggle = {isModalOpen} handleToggle={() => handleModalClose()}>
       <div className={styles.container}>
         <div className={styles.heading}>
           <div className={styles.left}>
-            {/* <div className={styles.logo}>
-              <Image src={logoProps?.src} loader = {logoProps?.loader} height={30} width={30} alt={`${name} logo`} />
-            </div> */}
             <div className={styles.name}>
-              <h2>{name}</h2>
-              <p>{type}</p>
+              <h2>{website.name}</h2>
+              <p>{website.type}</p>
             </div>
           </div>
 
-          <div className={styles.right} onClick={handleClose}>
+          <div className={styles.right} onClick={() => handleModalClose()}>
             <h4>Close</h4>
           </div>
         </div>
 
         <div className={styles.stack}>
           <h4>stack</h4>
-          {/* {stack?.map((logo, i) => (
-            <Image
-              src={renderStackLogo(logo) || ""}
-              height={40}
-              width={40}
-              alt={`${logo} logo`}
-              key={i}
-            />
-          ))} */}
+          <div className="flex gap-1">
+            {website.stack.map((tech,i) => (
+              <Image src={renderStackImage(tech)} height={30} width={30} alt = {tech} />
+            ))}
+          </div>
         </div>
 
         <div className={styles.description}>
-          <p>{description}</p>
+          <p>{website.description}</p>
         </div>
 
         <div className={styles.image}>
           <Image
-            src={imageProps.src}
-            loader={imageProps.loader}
+            src={imageProps?.src}
+            loader={imageProps?.loader}
             fill
-            alt={`${name} landing page`}
+            alt={`${website?.name} landing page`}
           />
         </div>
 
         <div className={styles.buttons}>
-          <a href={url} target="_blank" rel="noreferrer">
+          <a href={website.links.url} target="_blank" rel="noreferrer">
             <button className={styles.button}>
-              {/* <BsEyeFill /> */}
+              <Eye />
             </button>
           </a>
 
-          <a href={github} target="_blank" rel="noreferrer">
+          <a href={website.links.github} target="_blank" rel="noreferrer">
             <button className={styles.button} id={styles.github}>
-              {/* <BsGithub /> */}
+              <GitHub />
             </button>
           </a>
         </div>

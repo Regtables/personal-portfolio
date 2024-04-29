@@ -9,21 +9,14 @@ import { Webiste } from "@/app/lib/types";
 import styles from "./WebsiteCard.module.scss";
 import { client } from "@/app/lib/sanity";
 
-import withModal from "@/app/hocs/withModal";
+import { useModal } from "@/app/context/ModalContext";
 
-const WebsiteCard = ({
-  website,
-  i,
-  togglePreview,
-}: {
-  website: Webiste;
-  i: number;
-  togglePreview: (toggle: boolean, website: Webiste) => void;
-}) => {
+const WebsiteCard = ({ website, i }: { website: Webiste; i: number }) => {
   const { name, links, image } = website;
   const { src, loader }: any = useNextSanityImage(client, image);
   const [animate, setAnimate] = useState({});
   const [delay, setDelay] = useState(0);
+  const { handleModalOpen } = useModal();
 
   useEffect(() => {
     const cards = document.getElementById("website-cards");
@@ -60,7 +53,6 @@ const WebsiteCard = ({
   };
 
   const handleMouseMove = (e: any) => {
-    console.log(e);
     const { currentTarget: target } = e;
 
     const rect = target.getBoundingClientRect(),
@@ -71,13 +63,18 @@ const WebsiteCard = ({
     target.style.setProperty("--mouse-y", `${y}px`);
   };
 
+  const handleClick = () => {
+    console.log('clicking')
+    handleModalOpen("workPreview", { activeWebsite: website })
+  }
+
   return (
     <motion.div
       className={styles.container}
       whileInView={animate}
       transition={{ duration: 0.5, delay: delay }}
       id={`website-card-${i}`}
-      onClick={() => togglePreview(true, website)}
+      onClick={handleClick}
       // whileHover={{ scale: [1, 0.99]}}
     >
       <div className={styles.border}></div>
@@ -91,10 +88,8 @@ const WebsiteCard = ({
           <Image src={src} loader={loader} fill alt={`${name} hero`} />
         </div>
       </div>
-      {/* <div className={styles.content}> */}
-      {/* </div> */}
     </motion.div>
   );
 };
 
-export default withModal(WebsiteCard);
+export default WebsiteCard;

@@ -21,8 +21,6 @@ const Quadrant = ({
   const [hover, setHover] = useState(false);
   const [bgColor, setBgColor] = useState("transparent");
 
-  console.log(rotationSpeed);
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       // Update the rotation state by a certain angle (e.g., 10 degrees)

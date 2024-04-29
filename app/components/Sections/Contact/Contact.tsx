@@ -15,7 +15,7 @@ const Contact = () => {
       </div>
 
       <footer className='absolute bottom-0 mb-4'>
-        <p className='text-[12px]'>Copyright © 2023 Regtables</p>
+        <p className='text-[12px]'>Copyright © 2024 Regtables</p>
       </footer>
     </div>
   )

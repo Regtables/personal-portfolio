@@ -48,7 +48,7 @@ const NavDots = ({ sections }: { sections: any }) => {
             animate={hover ? "visible" : "hidden"}
             transition={{ duration: 0.3, delay: 0.1 * i }}
           >
-            {section.slug}
+            {section.link}
           </motion.p>
 
           <div

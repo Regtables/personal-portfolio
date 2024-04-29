@@ -18,7 +18,7 @@ export default async function Home() {
       <Navbar />
 
       <NavDots sections={LINKS} />
-
+      
       <SectionLayout heading="home" hero>
         <Hero />
       </SectionLayout>

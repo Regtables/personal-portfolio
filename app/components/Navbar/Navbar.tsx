@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import styles from "./Navbar.module.scss";
 import { LINKS } from "../../lib/constants";
 import { useSection } from "@/app/context/SectionContext";
+import Logo from "../Logo";
 
 const Navbar = () => {
   const { handleNavHover } = useSection();
@@ -38,6 +39,7 @@ const Navbar = () => {
   return (
     <nav className={`${styles.container}`}>
       <motion.div className={styles.logo} whileInView={{ x: [-20, 0], opacity: [0,1]}} transition={{ duration: 1.5 }}>
+        {/* <Logo /> */}
         <h1>Regtables</h1>
       </motion.div>
 
