@@ -15,6 +15,7 @@ export default async function Home() {
 
   return (
     <main className="home-container" id="home">
+      <div id = 'top' />
       <Navbar />
 
       <NavDots sections={LINKS} />

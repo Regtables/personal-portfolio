@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import WebsitePreview from "../WebsitePreview/WebsitePreview";
+import LoadingModal from "../Modals/LoadingModal";
 
 const ModalProvider = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -13,7 +14,10 @@ const ModalProvider = () => {
   if (!isMounted) return null;
 
   return (
-    <WebsitePreview />
+    <>
+      <WebsitePreview />
+      <LoadingModal />
+    </>
   );
 };
 

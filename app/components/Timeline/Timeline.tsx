@@ -53,6 +53,7 @@ const Timeline = ({ timeline }: { timeline: TimelineSection[] }) => {
           onHoverEnd={() => setHover(-1)}
           whileInView={{ opacity: [0, 1], x: [-10, 0] }}
           transition={{ duration: 0.5, delay: 0.1 * i }}
+          key = {i}
         >
           <TimelineCircle section={section} hover={hover} i={i} />
           <TimelineBar i={i} hover={hover} />

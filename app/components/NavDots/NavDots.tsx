@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import styles from "./NavDots.module.scss";
 import { useSection } from "@/app/context/SectionContext";
+import { smoothScroll } from "@/app/lib/utils";
 
 const NavDots = ({ sections }: { sections: any }) => {
   const { currentSection } = useSection();
@@ -38,7 +39,8 @@ const NavDots = ({ sections }: { sections: any }) => {
       id="nav-dots"
     >
       <motion.a
-        href={`#home`}
+        // href={`#home`}
+        onClick={() => smoothScroll('top')}
         whileInView={{ x: [50, 0], opacity: [0, 1] }}
         transition={{ duration: 0.3, delay: 0 }}
         className={styles.dot_container}
@@ -59,7 +61,8 @@ const NavDots = ({ sections }: { sections: any }) => {
       </motion.a>
       {sections.map((section: any, i: number) => (
         <motion.a
-          href={`#${section.slug}`}
+          onClick={() => smoothScroll(`${section.slug}`)}
+          // href={`#${section.slug}`}
           className={styles.dot_container}
           key={i}
         >
@@ -79,10 +82,11 @@ const NavDots = ({ sections }: { sections: any }) => {
         </motion.a>
       ))}
       <motion.a
-        href={`#contact`}
+        // href={`#contact`}
         whileInView={{ x: [50, 0], opacity: [0, 1] }}
         transition={{ duration: 0.3, delay: 0.5 }}
         className={styles.dot_container}
+        onClick={() => smoothScroll('contact')}
       >
         <motion.p
           variants={childVariants}

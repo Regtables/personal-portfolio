@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 import React, { useEffect, useState } from "react";
+import { smoothScroll } from "@/app/lib/utils";
 
 const MobileNavbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -19,6 +20,11 @@ const MobileNavbar = () => {
   useEffect(() => {
     handleToggle()
   }, [pathname])
+
+  const handleClick = (link: string) => {
+    smoothScroll(link)
+    handleToggle()
+  }
 
   const renderLinkColor = (link: string) => {
     console.log(link);
@@ -49,12 +55,26 @@ const MobileNavbar = () => {
           >
             <h1 className="font-bold text-center text-[30px] pt-10">Regtables</h1>
             <div className="grid grid-cols-1 gap-4 mt-8 w-full">
+            <motion.div
+                className={`p-3 text-[25px] font-bold rounded-r-md relative z-50 opacity-100`}
+                whileInView={{ width: ["0%", `90%`], opacity: [0, 1] }}
+                transition={{ duration: 0.7, delay: 0 }}
+                style={{
+                  backgroundColor: "var(--color-red)",
+                  width: "90%",
+                }}
+                initial={{ width: "0%", opacity: 0 }}
+                exit={{ width: '0%', transition: { delay: 0, duration: 0.5 }}}
+                onClick={() => handleClick('top')}
+              >
+                home
+              </motion.div>
               {LINKS.map((link, i) => (
                 <a href={`#${link.slug}`} key={i} onClick={handleToggle}>
                   <motion.div
                     className={`p-3 text-[25px] font-bold rounded-r-md relative z-50 opacity-100`}
                     whileInView={{
-                      width: ["0%", `${90 - 10 * i}%`],
+                      width: ["0%", `${80 - 10 * i}%`],
                       opacity: [0, 1],
                     }}
                     transition={{ duration: 0.7, delay: i * 0.1 }}
@@ -79,7 +99,7 @@ const MobileNavbar = () => {
                 }}
                 initial={{ width: "0%", opacity: 0 }}
                 exit={{ width: '0%', transition: { delay: -0.1, duration: 0.5 }}}
-                onClick={handleToggle}
+                onClick={() => handleClick('contact')}
               >
                 contact
               </motion.div>

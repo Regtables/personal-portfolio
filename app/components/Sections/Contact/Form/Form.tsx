@@ -2,10 +2,11 @@
 
 import React, { useState } from "react";
 import { Instagram, Linkedin, Mail, Phone } from "react-feather";
-// import { MdOutlineMail, MdPhoneAndroid } from 'react-icons/md'
-// import { RxInstagramLogo } from 'react-icons/rx'
+import { motion } from "framer-motion";
 
+import { useModal } from "@/app/context/ModalContext";
 import styles from "./Form.module.scss";
+
 import DetailCard from "./DetailCard/DetailCard";
 
 const iconProps = {
@@ -38,62 +39,114 @@ const Form = () => {
     email: "",
     message: "",
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const { handleModalOpen, handleModalClose } = useModal();
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    try{
-      const res = await fetch('/api/emails/contact', { 
-        method: 'POST',
-        body: JSON.stringify({ formData })
-      })
-    } catch (error){
-      console.log(error)
+    try {
+      handleModalOpen("loading");
+      const res = await fetch("/api/emails/contact", {
+        method: "POST",
+        body: JSON.stringify({ formData }),
+      });
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      handleModalClose();
     }
-  }
+  };
   return (
     <div className={styles.container}>
       <div className={styles.contact}>
-        <DetailCard item={EMAIL} />
-        <DetailCard item={INSTAGRAM} />
-        <DetailCard item={PHONE} />
-        <DetailCard item = {Linked} />
+        <motion.div
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          <DetailCard item={EMAIL} />
+        </motion.div>
+
+        <motion.div
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 1, delay: 0.4 }}
+        >
+          <DetailCard item={INSTAGRAM} />
+        </motion.div>
+        <motion.div
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
+          <DetailCard item={PHONE} />
+        </motion.div>
+        <motion.div
+          whileInView={{ opacity: [0, 1] }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          <DetailCard item={Linked} />
+        </motion.div>
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <div className={styles.details}>
-          <input
-            name="name"
-            placeholder="name"
+      {isSubmitted ? (
+        <motion.div
+          className="text-center lg:w-[70%] w-full flex justify-center mx-auto mt-8"
+          whileInView={{ y: [20, 0], opacity: [0, 1] }}
+          transition={{ duration: 2 }}
+        >
+          <h2 className="text-[38px] font-[800] text-[var(--color-font)] ">
+            Thank you for getting in touch, {formData.name}. I will get back to
+            you shortly
+          </h2>
+        </motion.div>
+      ) : (
+        <motion.form
+          onSubmit={handleSubmit}
+          whileInView={{ y: [20, 0], opacity: [0, 1] }}
+          transition={{ duration: 1 }}
+        >
+          <div className={styles.details}>
+            <input
+              name="name"
+              placeholder="name"
+              className="hover"
+              onChange={handleChange}
+              value={formData.name}
+              // required
+            />
+            <input
+              name="email"
+              type="email"
+              placeholder="email"
+              className="hover"
+              onChange={handleChange}
+              value={formData.email}
+              // required
+            />
+          </div>
+
+          <textarea
+            name="message"
+            placeholder="your message"
             className="hover"
             onChange={handleChange}
-            value={formData.name}
+            value={formData.message}
+            // required
           />
-          <input
-            name = 'email'
-            placeholder="email"
-            className="hover"
-            onChange={handleChange}
-            value={formData.email}
-          />
-        </div>
 
-        <textarea
-          name = 'message'
-          placeholder="your message"
-          className="hover"
-          onChange={handleChange}
-          value={formData.message}
-        />
-
-        <button type="submit" className= {`hover`}>
-          send
-        </button>
-      </form>
+          <button type="submit" className={`hover`}>
+            send
+          </button>
+        </motion.form>
+      )}
     </div>
   );
 };

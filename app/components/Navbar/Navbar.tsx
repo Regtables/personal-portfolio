@@ -37,7 +37,7 @@ const Navbar = () => {
   // }
 
   return (
-    <nav className={`${styles.container}`}>
+    <nav className={`${styles.container}`} id = 'nav'>
       <motion.div className={styles.logo} whileInView={{ x: [-20, 0], opacity: [0,1]}} transition={{ duration: 1.5 }}>
         {/* <Logo /> */}
         <h1>Regtables</h1>

@@ -146,7 +146,7 @@ const Hero = () => {
   };
 
   return (
-    <div id = 'home'>
+    <div>
       {!toggleForm ? (
         <div className= {styles.container}>
           <div className={styles.left}>
