@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: 'Fullstack React Developer portfolio for Reghardt Pienaar',
 }
 
+export const revalidate = 0;
+
 export default function RootLayout({
   children,
 }: {
