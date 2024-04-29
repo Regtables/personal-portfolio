@@ -53,7 +53,7 @@ const WebsitePreview= () => {
           <h4>stack</h4>
           <div className="flex gap-1">
             {website.stack.map((tech,i) => (
-              <Image src={renderStackImage(tech)} height={30} width={30} alt = {tech} />
+              <Image src={renderStackImage(tech)} height={30} width={30} alt = {tech} style={ tech === 'next' ? { filter: 'invert(100)'} : {}} />
             ))}
           </div>
         </div>

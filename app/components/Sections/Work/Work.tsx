@@ -6,7 +6,7 @@ import { cn } from "@/app/lib/utils";
 
 import WebsiteCard from "../../Cards/WebsiteCard/WebsiteCard";
 
-const Work = ({ work } : { work: Webiste[] }) => {
+const Work = ({ work, work2 } : { work: Webiste[], work2: Webiste[] }) => {
   const [index, setIndex] = useState(0);
   
   return (
@@ -21,7 +21,7 @@ const Work = ({ work } : { work: Webiste[] }) => {
           ))}
         </div>
         <div className="h-full lg:h-full min-w-full w-full grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-1">
-          {work.map((website: Webiste, i: number) => (
+          {work2?.map((website: Webiste, i: number) => (
             <WebsiteCard website={website} i={i} key={i} />
           ))}
         </div>

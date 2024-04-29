@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Instagram, Mail, Phone } from "react-feather";
+import { Instagram, Linkedin, Mail, Phone } from "react-feather";
 // import { MdOutlineMail, MdPhoneAndroid } from 'react-icons/md'
 // import { RxInstagramLogo } from 'react-icons/rx'
 
@@ -25,6 +25,11 @@ const INSTAGRAM = {
 const PHONE = {
   icon: <Phone {...iconProps} />,
   info: "0764548241",
+};
+
+const Linked = {
+  icon: <Linkedin {...iconProps} />,
+  info: "Reghardt Pienaar",
 };
 
 const Form = () => {
@@ -56,6 +61,7 @@ const Form = () => {
         <DetailCard item={EMAIL} />
         <DetailCard item={INSTAGRAM} />
         <DetailCard item={PHONE} />
+        <DetailCard item = {Linked} />
       </div>
 
       <form onSubmit={handleSubmit}>

@@ -1,8 +1,8 @@
 export const LINKS = [
-  {
-    link: 'home',
-    slug: 'home'
-  },
+  // {
+  //   link: 'home',
+  //   slug: 'home'
+  // },
   {
     link: 'about',
     slug: 'about'

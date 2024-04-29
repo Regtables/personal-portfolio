@@ -28,7 +28,7 @@ export default async function Home() {
       </SectionLayout>
 
       <SectionLayout heading="work">
-        <Work work={work} />
+        <Work work={work.websites} work2={work.websites2} />
       </SectionLayout>
 
       <SectionLayout heading="skills" left>

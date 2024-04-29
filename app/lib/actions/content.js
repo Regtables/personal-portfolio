@@ -3,8 +3,10 @@ import { aboutQuery, workQuery } from '../queries'
 
 export const getWorkContent = async () => {
   const workContent = await client.fetch(workQuery())
+  
+  const { websites, websites2 } = workContent[0]
 
-  return workContent[0].websites
+  return { websites, websites2 }
 }
 
 export const getAboutContent = async () => {

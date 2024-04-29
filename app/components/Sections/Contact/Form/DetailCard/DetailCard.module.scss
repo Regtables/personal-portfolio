@@ -13,4 +13,9 @@
     font-size: 14px;
     color: var(--color-font);
   }
+
+  @media screen and (max-width: 450px) {
+    min-height: 50px;
+    gap: 10px;
+  }
 }

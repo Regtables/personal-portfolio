@@ -81,7 +81,7 @@ const WebsiteCard = ({ website, i }: { website: Webiste; i: number }) => {
       <div className={styles.content}>
         <div className={styles.name}>
           <h3>{name}</h3>
-          <p>{links.url}</p>
+          {/* <p>{links.url}</p> */}
         </div>
 
         <div className={styles.image}>

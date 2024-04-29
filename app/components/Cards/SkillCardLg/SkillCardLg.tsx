@@ -20,7 +20,7 @@ const SkillCardLg = ({ card, i } : { card: SkillCardContent, i: number }) => {
       </div>
 
       <div>
-        <p className='text-[12px] lg:text-[14px] font-[300]'>{text}</p>
+        <p className='text-[11px] lg:text-[14px] font-[300]'>{text}</p>
       </div>
     </motion.div>
   )

@@ -5,7 +5,7 @@ export const skillsQuery = () => {
 }
 
 export const workQuery = () => {
-  const query = '*[_type == "work"]{websites[]->}'
+  const query = '*[_type == "work"]{websites[]->, websites2[]->}'
 
   return query
 }

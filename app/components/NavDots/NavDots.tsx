@@ -37,6 +37,26 @@ const NavDots = ({ sections }: { sections: any }) => {
       transition={{ duration: 0.1, delay: 0 }}
       id="nav-dots"
     >
+      <motion.a
+        href={`#home`}
+        whileInView={{ x: [50, 0], opacity: [0, 1] }}
+        transition={{ duration: 0.3, delay: 0 }}
+        className={styles.dot_container}
+      >
+        <motion.p
+          variants={childVariants}
+          animate={hover ? "visible" : "hidden"}
+          transition={{ duration: 0.4, delay: 0 }}
+        >
+          home
+        </motion.p>
+
+        <div
+          className={`${styles.dot} ${
+            currentSection === "home" ? styles.active : ""
+          } hover`}
+        />
+      </motion.a>
       {sections.map((section: any, i: number) => (
         <motion.a
           href={`#${section.slug}`}

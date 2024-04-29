@@ -24,17 +24,17 @@ const LG_CARDS = [
   {
     icon: <Zap {...lgIconProps} />,
     title: "Modern",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    text: "Although coding websites in React can be quite labour intensive, It has always been the only way I wanted to work. I believe in the next generation of the web and creating websites that can translate a feeling that is only possible with modular design.",
   },
   {
     icon: <Music {...lgIconProps} />,
     title: "Creative",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    text: "I believe that writing code is as creative as writing music. In both these enviroments I feel at home. Expressing my feelings and figuring out how to creatively and uniquely realize the concpets that are in my mind gives me great purpose and joy.",
   },
   {
     icon: <Layers {...lgIconProps} />,
     title: "Full Stack",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    text: "Since 2023 I have started writing basic backend code like authentication, e-commerce and CRUD applications. Although most of the work I do is front facing, figuring out how to elegantly and gracefully connect the frontend and backend gives me great sastifaction.",
   },
 ];
 
@@ -132,7 +132,7 @@ const MD_CARDS_1 = [
       "Accountable",
       "Manages Resources",
       "Instrinsictly Motivated",
-      "Orginized",
+      "Orginised",
     ],
   },
   {
@@ -155,8 +155,8 @@ const MD_CARDS_2 = [
     points: [
       "Out of the box",
       "Intuitive",
-      "Commited to cool",
-      "Fun Details",
+      "Unique",
+      "Tasteful",
       "Experimental",
     ],
   },
