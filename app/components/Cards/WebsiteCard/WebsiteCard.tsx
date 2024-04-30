@@ -75,6 +75,7 @@ const WebsiteCard = ({ website, i }: { website: Webiste; i: number }) => {
       transition={{ duration: 0.5, delay: delay }}
       id={`website-card-${i}`}
       onClick={handleClick}
+      initial = {{ opacity: 0 }}
       // whileHover={{ scale: [1, 0.99]}}
     >
       <div className={styles.border}></div>

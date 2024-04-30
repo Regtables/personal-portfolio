@@ -31,7 +31,7 @@ const SectionLayout = ({ heading, children, hero, left }: Section) => {
       <div ref={ref} className="absolute left-0 top-[50%] h-[1px]" />
 
       {!hero && (
-        <header className="relative z-10 py-[0.5rem] h-[13%] pb-[1rem] lg:py-[2rem] lg:pb-[1rem]">
+        <header className="relative z-10 py-[0.5rem] pb-[1rem] lg:py-[2rem] lg:pb-[1rem]">
           <h2 className="text-[26px] font-[700]">{heading}</h2>
         </header>
       )}
