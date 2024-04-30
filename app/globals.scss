@@ -49,9 +49,13 @@ input{
   height: 100vh;
   // max-height: 100vh;
 
+  @media screen and (max-height: 813px) {
+    min-height: unset;
+    height: unset;
+  }
+
   @media screen and (max-width:450px) {
     scroll-snap-type: none;
-    height: 140vh;
     overflow-y: visible;;
   }
 }
@@ -61,6 +65,11 @@ input{
   max-width: 100vw;
   box-sizing: border-box;
   scroll-snap-align:start ;
+
+  @media screen and (max-height: 668px) {
+    min-height: 100vh !important;
+  }
+
 }
 
 .in-view{
