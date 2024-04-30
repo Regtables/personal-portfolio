@@ -20,7 +20,7 @@ const SectionLayout = ({ heading, children, hero, left }: Section) => {
 
   return (
     <section
-      className="min-h-screen section lg:h-screen snap-center relative lg:overflow-hidden overflow-x-hidden overflow-y-visible lg:px-[6.5rem] px-[1rem]"
+      className="flex flex-col min-h-screen section lg:h-screen snap-center relative lg:overflow-hidden overflow-x-hidden overflow-y-visible lg:px-[6.5rem] px-[1rem]"
       id={heading}
       // style= {heading === 'home' ? { scrollMarginTop: '80px'} : { scrollMarginTop: '0px' }}
     >
@@ -36,7 +36,7 @@ const SectionLayout = ({ heading, children, hero, left }: Section) => {
         </header>
       )}
 
-      <div className="relative z-10 h-[87%] lg:h-[85%]">{children}</div>
+      <div className="relative z-10 h-[100%] lg:h-[85%]">{children}</div>
     </section>
   );
 };
