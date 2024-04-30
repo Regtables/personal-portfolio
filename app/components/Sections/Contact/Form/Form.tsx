@@ -75,6 +75,7 @@ const Form = () => {
         <motion.div
           whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 1, delay: 0.2 }}
+          initial = {{ opacity: 0 }}
         >
           <DetailCard item={EMAIL} />
         </motion.div>
@@ -82,18 +83,21 @@ const Form = () => {
         <motion.div
           whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 1, delay: 0.4 }}
+          initial = {{ opacity: 0 }}
         >
           <DetailCard item={INSTAGRAM} />
         </motion.div>
         <motion.div
           whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 1, delay: 0.6 }}
+          initial = {{ opacity: 0 }}
         >
           <DetailCard item={PHONE} />
         </motion.div>
         <motion.div
           whileInView={{ opacity: [0, 1] }}
           transition={{ duration: 1, delay: 0.8 }}
+          initial = {{ opacity: 0 }}
         >
           <DetailCard item={Linked} />
         </motion.div>
