@@ -14,11 +14,18 @@ const MobileNavbar = () => {
   const pathname = usePathname()
 
   const handleToggle = () => {
-    setToggle(!toggle);
+    if(toggle){
+      setToggle(false);
+    } else {
+      setToggle(true)
+    }
   };
 
   useEffect(() => {
-    handleToggle()
+    // handleToggle()
+    if(toggle){
+      handleToggle()
+    }
   }, [pathname])
 
   const handleClick = (link: string) => {
