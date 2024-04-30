@@ -8,7 +8,7 @@ const SkillCardSml = ({ card, width = 40, height = 40, i } : { card: { skill: st
   const { skill, icon } = card
   return (
     <motion.div 
-      className='h-full w-full rounded-lg bg-[var(--color-card)] backdrop-blur-sm flex items-center justify-center hover p-1'
+      className='h-full w-full rounded-lg bg-[var(--color-card)] flex items-center justify-center hover p-1'
       whileInView={{ opacity: [0,1]}}
       transition={{ duration: 0.5, delay: 0.1*i/2 }}
     >

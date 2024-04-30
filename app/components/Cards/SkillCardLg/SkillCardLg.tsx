@@ -10,7 +10,7 @@ const SkillCardLg = ({ card, i } : { card: SkillCardContent, i: number }) => {
 
   return (
     <motion.div 
-      className='w-full h-full bg-[var(--color-card)] p-2 lg:p-4 rounded-lg backdrop-blur-sm flex flex-col gap-2 hover'
+      className='w-full h-full bg-[var(--color-card)] p-2 lg:p-4 rounded-lg flex flex-col gap-2 hover'
       whileInView={{ opacity: [0,1], x: [20, 0] }}
       transition={{ duration: 1, delay: 0.3*i}}
     >
