@@ -11,6 +11,7 @@ const SkillCardMd = ({ card, i } : { card: { title: string, points: string[], ic
       className='h-full w-full rounded-lg bg-[var(--color-card)] p-2 lg:p-4 flex flex-col gap-2 hover' 
       whileInView={{ opacity: [0,1] }}
       transition={{ duration: 1, delay: 0.2*i}}
+      initial = {{ opacity: 0 }}
     >
       <div className='flex items-center gap-1'>
         {/* {icon} */}

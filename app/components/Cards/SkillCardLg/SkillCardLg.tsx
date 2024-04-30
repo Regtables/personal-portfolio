@@ -13,6 +13,7 @@ const SkillCardLg = ({ card, i } : { card: SkillCardContent, i: number }) => {
       className='w-full h-full bg-[var(--color-card)] p-2 lg:p-4 rounded-lg flex flex-col gap-2 hover'
       whileInView={{ opacity: [0,1], x: [20, 0] }}
       transition={{ duration: 1, delay: 0.3*i}}
+      initial = {{ opacity: 0, x: 20 }}
     >
       <div className='flex gap-2 items-center'>
         {icon}
