@@ -53,6 +53,7 @@ const Timeline = ({ timeline }: { timeline: TimelineSection[] }) => {
           transition={{ duration: 0.5, delay: 0.1 * i }}
           onHoverStart={() => setHover(i)}
           onHoverEnd={() => setHover(-1)}
+          initial = { { opacity: 0, x: -10 }}
           key={i}
         >
           <motion.div
