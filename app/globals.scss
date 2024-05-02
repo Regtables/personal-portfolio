@@ -47,7 +47,7 @@ input{
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   height: 100vh;
-  // max-height: 100vh;
+  max-height: 100vh;
 
   @media screen and (max-height: 813px) {
     min-height: unset;
