@@ -1,8 +1,6 @@
 "use client";
-
-import React, { useRef, useState } from "react";
-import { motion } from "framer-motion";
-
+import React, { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Timeline.module.scss";
 import { TimelineSection } from "@/app/lib/types";
 import { useMediaQuery } from "react-responsive";
@@ -25,9 +23,7 @@ export const TimelineCircle = ({
   return (
     <div className={`${styles.activity}`}>
       <h4>{section.year}</h4>
-      <div
-        className={`${styles.circle} ${hover === i ? styles.hover : ""}`}
-      ></div>
+      <div className={`${styles.circle} ${hover === i ? styles.hover : ""}`}></div>
       <h5>{section.activity}</h5>
     </div>
   );
@@ -36,37 +32,37 @@ export const TimelineCircle = ({
 const Timeline = ({ timeline }: { timeline: TimelineSection[] }) => {
   const [hover, setHover] = useState(-1);
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const containerRef:any = useRef(null)
+  const containerRef: any = useRef(null);
 
-  const handleClick = (i?: number, e?:any) => {
-    if (
-      containerRef.current &&
-      !containerRef.current.contains(e.target)
-    ) {
-      setHover(-1)
+  const handleClick = (i?: number, e?: any) => {
+    if (containerRef.current && !containerRef.current.contains(e.target)) {
+      setHover(-1);
     } else {
-      if (i! >= 0) {
-        setHover(i!);
-      } else if (!i) {
-        setHover(-1);
-      } else {
-        setHover(i);
+      setHover(i!);
     }
-    }
-  
   };
 
+  useEffect(() => {
+    const handleClickOutside = (e: any) => {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setHover(-1);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   const childVariants = {
-    hidden: {
-      opacity: 0,
-    },
-    visible: {
-      opacity: 1,
-    },
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <div className={styles.container} ref={containerRef} onClick={(e) => handleClick(undefined, e)}>
+    <div className={styles.container} ref={containerRef}>
       {timeline.map((section, i) => (
         <motion.div
           className={`${styles.section}`}
@@ -74,7 +70,7 @@ const Timeline = ({ timeline }: { timeline: TimelineSection[] }) => {
           transition={{ duration: 0.5, delay: 0.1 * i }}
           onHoverStart={!isMobile ? () => setHover(i) : () => {}}
           onHoverEnd={!isMobile ? () => setHover(-1) : () => {}}
-          onClick={isMobile ? (e) => handleClick(i, e) : () => {}}
+          onClick={(e) => handleClick(i, e)}
           initial={{ opacity: 0, x: -10 }}
           key={i}
         >
@@ -82,17 +78,21 @@ const Timeline = ({ timeline }: { timeline: TimelineSection[] }) => {
             <TimelineCircle section={section} hover={hover} i={i} />
             <TimelineBar i={i} hover={hover} />
           </motion.div>
-
-          <motion.div
-            variants={childVariants}
-            className={styles.description}
-            animate={hover === i ? "visible" : "hidden"}
-            initial = "hidden"
-            transition={{ duration: 0.5 }}
-            onClick={(e) => handleClick(undefined, e)}
-          >
-            <p>{section.description}</p>
-          </motion.div>
+          <AnimatePresence>
+            {hover === i && (
+              <motion.div
+                variants={childVariants}
+                className={styles.description}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                transition={{ duration: 0.3 }}
+                onClick={() => setHover(-1)}
+              >
+                <p>{section.description}</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       ))}
     </div>
