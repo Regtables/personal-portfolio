@@ -50,16 +50,13 @@ input{
   max-height: 100vh;
 
   @media screen and (max-height: 813px) {
-    // max-height: unset;
-    // min-height: unset;
-    // height: unset;
+    min-height: unset;
+    height: unset;
   }
 
   @media screen and (max-width:450px) {
     scroll-snap-type: none;
-    overflow-y: unset;
-    max-height: unset;
-    height: unset;
+    overflow-y: visible;;
   }
 }
 
@@ -72,11 +69,7 @@ input{
   @media screen and (max-height: 668px) {
     min-height: 100vh !important;
   }
-  
-  @media screen and (max-width: 450px) {
-    // margin-top: 20px;
-    margin-bottom: 20px;
-  }
+
 }
 
 .in-view{
