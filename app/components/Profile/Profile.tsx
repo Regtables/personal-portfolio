@@ -13,12 +13,12 @@ import axios from "axios";
 
 const SocialTile = ({ url, handle, icon }: { url: string; handle: string, icon: any }) => {
   return (
-    // <a href={url} target="_blank" rel="noreferrer">
+    <a href={url} target="_blank" rel="noreferrer">
       <button className= {styles.social}>
         {icon}
         <p>{handle}</p>
       </button>
-    // </a>
+    </a>
   );
 };
 
@@ -102,10 +102,10 @@ const Profile = ({ profile }: { profile: ProfileType }) => {
           {/* <SocialTile icon = {<Instagram />} url="" handle="@eat.your.regtables" /> */}
           
           <SocialTile icon = {<Instagram />} url="https://www.instagram.com/gaze.band/" handle="@gaze.band" />
-          <SocialTile icon = {<GitHub />} url = '"https://github.com/Regtables"' handle = 'Regtables' />
+          <SocialTile icon = {<GitHub />} url = "https://github.com/Regtables" handle = 'Regtables' />
           
           <div className="lg:block hidden">
-            <SocialTile icon = {<Linkedin />} url = '"https://www.linkedin.com/in/reghardt-pienaar-617329a7/"' handle="Reghardt Pienaar" />
+            <SocialTile icon = {<Linkedin />} url = "https://www.linkedin.com/in/reghardt-pienaar-617329a7/" handle="Reghardt Pienaar" />
           </div>
         </div>
 
