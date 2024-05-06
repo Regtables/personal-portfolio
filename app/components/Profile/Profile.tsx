@@ -47,6 +47,7 @@ const Profile = ({ profile }: { profile: ProfileType }) => {
         className={styles.carousel}
         whileInView={{ x: [-20, 0], opacity: [0, 1] }}
         transition={{ duration: 1.5 }}
+        initial = {{ x: -20, opacity: 0}}
       >
         <Carousel images={images} />
       </motion.div>
@@ -55,6 +56,7 @@ const Profile = ({ profile }: { profile: ProfileType }) => {
         className={styles.information}
         whileInView={{ x: [20, 0], opacity: [0, 1] }}
         transition={{ duration: 1.5 }}
+        initial = {{ x: 20, opacity: 0}}
       >
         <h3 className="font-[700] text-[20px]">Profile</h3>
 

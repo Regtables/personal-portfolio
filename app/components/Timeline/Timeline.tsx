@@ -87,6 +87,7 @@ const Timeline = ({ timeline }: { timeline: TimelineSection[] }) => {
             variants={childVariants}
             className={styles.description}
             animate={hover === i ? "visible" : "hidden"}
+            initial = "hidden"
             transition={{ duration: 0.5 }}
             onClick={(e) => handleClick(undefined, e)}
           >
