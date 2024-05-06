@@ -12,7 +12,7 @@ const Work = ({ work, work2 } : { work: Webiste[], work2: Webiste[] }) => {
   return (
     <div className="h-full lg:min-h-0 min-h-screen w-full overflow-hidden" id="website-cards">
       <div
-        className="flex gap-1 lg:min-h-[90vh] min-h-[95vh] h-[95%] w-full transition-all duration-1000 pb-4"
+        className="flex gap-1 lg:h-[95%] h-[95vh] w-full transition-all duration-1000 pb-4"
         style={{ transform: `translateX(-${100 * index}%)` }}
       >
         <div className="h-full lg:h-full min-w-full grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-1">

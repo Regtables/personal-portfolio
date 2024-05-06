@@ -69,6 +69,10 @@ input{
   @media screen and (max-height: 668px) {
     min-height: 100vh !important;
   }
+  
+  @media screen and (max-width: 450px) {
+    // margin-top: 20px;
+  }
 
 }
 
