@@ -147,7 +147,7 @@ const Hero = () => {
   };
 
   return (
-    <div>
+    <>
       {!toggleForm ? (
         <div className= {styles.container}>
           <div className={styles.left}>
@@ -206,7 +206,7 @@ const Hero = () => {
           </button>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

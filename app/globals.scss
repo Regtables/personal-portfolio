@@ -57,6 +57,8 @@ input{
   @media screen and (max-width:450px) {
     scroll-snap-type: none;
     overflow-y: visible;;
+    max-height: unset;
+    overflow-x: hidden;
   }
 }
 
@@ -68,6 +70,10 @@ input{
 
   @media screen and (max-height: 668px) {
     min-height: 100vh !important;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-bottom: 40px;
   }
 
 }
