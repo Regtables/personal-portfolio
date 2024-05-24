@@ -9,7 +9,7 @@ import { client } from "@/app/lib/sanity";
 import Popup from "../Layout/Popup/Popup";
 import { useModal } from "@/app/context/ModalContext";
 import { GitHub } from "react-feather";
-import { Eye } from "lucide-react";
+import { Eye, X } from "lucide-react";
 
 
 const WebsitePreview= () => {
@@ -45,7 +45,7 @@ const WebsitePreview= () => {
           </div>
 
           <div className={styles.right} onClick={() => handleModalClose()}>
-            <h4>Close</h4>
+            <X />
           </div>
         </div>
 

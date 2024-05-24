@@ -54,8 +54,7 @@
     }
 
     .right{
-      h4{
-        font-weight: 300;
+      svg{
         cursor: pointer;
       }
     }
@@ -140,6 +139,14 @@
 
       button{
         width: 100%;
+      }
+    }
+
+    .heading{
+      .left{
+        h2{
+          font-size: 25px;
+        }
       }
     }
   }
